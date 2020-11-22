@@ -1,0 +1,45 @@
+{
+    "_comment": "CREATED BY: INfoUpgraders#0001",
+    "meta": {
+        "version": "PTDL_v1"
+    },
+    "exported_at": "2020-11-22T06:50:59-05:00",
+    "name": "PHP7.4",
+    "author": "infoupgraders@gmail.com",
+    "description": "PHP7.4",
+    "image": "quay.io\/infoupgraders\/pterodactyl-eggs:latest",
+    "startup": ".\/start.sh",
+    "config": {
+        "files": "{}",
+        "startup": "{\r\n    \"done\": \"change this part\"\r\n}",
+        "logs": "{}",
+        "stop": "^C"
+    },
+    "scripts": {
+        "installation": {
+            "script": "#!\/bin\/bash\r\necho nil",
+            "container": "php:7.4-buster",
+            "entrypoint": "bash"
+        }
+    },
+    "variables": [
+        {
+            "name": "Startup Command",
+            "description": "Command used to start the script.",
+            "env_variable": "STARTUP_CMD",
+            "default_value": "php index.php",
+            "user_viewable": 1,
+            "user_editable": 1,
+            "rules": "required|string|max:128"
+        },
+        {
+            "name": "Dependency Install",
+            "description": "Command used to install your PHP dependencies.",
+            "env_variable": "SECOND_CMD",
+            "default_value": "",
+            "user_viewable": 1,
+            "user_editable": 1,
+            "rules": "nullable|string|max:512"
+        }
+    ]
+}
